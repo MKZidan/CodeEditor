@@ -1,7 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useCallback, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 
 import Editor from '@monaco-editor/react';
+import '../styles/code-editor.css';
+import TopBar, { ButtonProps } from './top-bar';
+import DirectorySelector from './upload-file';
 
 const runJSCode = (codeString) => {
   try {
@@ -22,15 +25,8 @@ function CodeEditor() {
     console.log(editor);
   }
 
-  function showValue() {
-    const value = editorRef.current.getValue();
-    runJSCode(value);
-    alert(editorRef.current.getValue());
-  }
-
   return (
-    <>
-      <button onClick={showValue}>Show value</button>
+    <div className='editor'>
       <Editor
         height="90vh"
         width="95vw"
@@ -38,7 +34,7 @@ function CodeEditor() {
         defaultValue="// some comment"
         onMount={handleEditorDidMount}
       />
-    </>
+    </div>
   );
 }
 export default CodeEditor;

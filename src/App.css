@@ -1,14 +1,20 @@
 .editor-container {
   display: flex;
+  flex-direction: column;
+
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100vw;
   height: 100vh;
-  background-color: blue;
-}
+  /* flex: 1 1 auto; */
 
-.editor {
-  flex: 1 1 auto;
+  /* width: 80%; */
+  overflow: hidden;
+}
+.main-body {
+  display: flex;
+  flex-direction: row;
+
   width: 100%;
   overflow: hidden;
 
