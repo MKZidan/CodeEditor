@@ -1,7 +1,9 @@
 
+import { useContext } from "react";
 import "../styles/file-structure.css";
 import File from "./file";
 import Folder from "./folde";
+import FilesContentContext from "../store/files-content-context";
 
 const folderStructureData = {
   name: 'root',
@@ -48,9 +50,12 @@ const folderStructureData = {
 //   });
 // }
 export default function FileStructure() {
+    const {currentFolderStructure } = useContext(FilesContentContext);
+    console.log("Current folder structure:");
+    console.log(currentFolderStructure);
   return (
     <div className='file-structure-container'>   
-        {folderStructureData.items.map((item) => {
+        {currentFolderStructure.items && currentFolderStructure.items.map((item) => {
         return item.isFolder ? <Folder item={item} /> : <File item={item} />;
       })}
     </div>

@@ -3,7 +3,6 @@ import File from "./file";
 
 export default function Folder({ item, isChild = false }) {
     const [isExpanded, setIsExpanded] = useState(false);
-
     return (
     <div className={isChild? 'child' : ''}
 >
@@ -16,7 +15,7 @@ export default function Folder({ item, isChild = false }) {
 
         onClick={()=> setIsExpanded((prevStat) => !prevStat)}
         >
-        &#x276D; {item.name}
+        &#x276D; {item.fileName}
         </p>
         {
         isExpanded &&

@@ -5,10 +5,10 @@ const FilesContentContext = createContext({});
 export default FilesContentContext;
 
 export function FilesContentProvider({ children }) {
-    const [filesContent, setFilesContent] = useState({});
+    const [currentFolderStructure, setCurrentFolderStructure] = useState({});
     const value = {
-        filesContent,
-        setFilesContent,
+        currentFolderStructure,
+        setCurrentFolderStructure,
     };
     return <FilesContentContext value={value}>
         {children}
